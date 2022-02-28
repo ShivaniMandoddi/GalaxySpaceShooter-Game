@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bulletPrefab;
     public Vector3 offset;
     float time;
+    public AudioSource bulletSound;
+    public AudioClip audioClip;
     void Start()
     {
         
@@ -47,11 +49,13 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(-8.0f,transform.position.y,transform.position.z);
         }
 
-        time = time + Time.deltaTime; //Creating a bullet for every 0.5s
-        if (time > 0.5f)
+       // time = time + Time.deltaTime; //Creating a bullet for every 0.5s
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity);
-            time = 0f;
+            bulletSound.clip = audioClip;
+            bulletSound.Play();
+            //time = 0f;
         }
     }
 }
