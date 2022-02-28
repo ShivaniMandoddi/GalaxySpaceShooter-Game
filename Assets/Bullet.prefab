@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 0.03
-  source: {fileID: 0}
-  explosionSound: {fileID: 8300000, guid: 5d5cf24cc63a48f42a63303cbdcdeb13, type: 3}
+  explosionSound: {fileID: 8300000, guid: c9134922954edb343ba2cd0748de7894, type: 3}
+  explosionPrefab: {fileID: 1249933299250167285, guid: 19cf8a1da7673e74a84d1201d3100e7c, type: 3}
 --- !u!50 &2895398606351236998
 Rigidbody2D:
   serializedVersion: 4

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -52,10 +53,28 @@ public class PlayerMovement : MonoBehaviour
        // time = time + Time.deltaTime; //Creating a bullet for every 0.5s
         if (Input.GetButtonDown("Fire1"))
         {
+            //Here, method for triple shot.Triple shot means releasing three bullets at a time 
             Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity);
             bulletSound.clip = audioClip;
             bulletSound.Play();
             //time = 0f;
         }
+        else if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject.Find("Explosion").SetActive(true);
+            //Left wing bullet position
+            Instantiate(bulletPrefab, transform.position + new Vector3(-0.05f, -0.4f, 0f), Quaternion.identity);
+            // Center bullet position
+            Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity);
+            // Right wing bullet position
+            Instantiate(bulletPrefab, transform.position + new Vector3(0.05f, -0.4f, 0f), Quaternion.identity);
+
+        }
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
