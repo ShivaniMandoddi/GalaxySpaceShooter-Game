@@ -7,6 +7,7 @@ public class SpawnManagerScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject asteroidPrefab;
     float time;
+    
     void Start()
     {
         
@@ -20,8 +21,10 @@ public class SpawnManagerScript : MonoBehaviour
         {
             transform.position = new Vector3(8.5f, Random.Range(-4.5f, 4.5f), 0f);
             Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
+           
             time = 0f;
         }
-       
+        
+
     }
 }
