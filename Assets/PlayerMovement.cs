@@ -61,13 +61,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject.Find("Explosion").SetActive(true);
+           
             //Left wing bullet position
             Instantiate(bulletPrefab, transform.position + new Vector3(-0.05f, -0.4f, 0f), Quaternion.identity);
             // Center bullet position
             Instantiate(bulletPrefab, transform.position + offset, Quaternion.identity);
             // Right wing bullet position
-            Instantiate(bulletPrefab, transform.position + new Vector3(0.05f, -0.4f, 0f), Quaternion.identity);
+            Instantiate(bulletPrefab, transform.position + new Vector3(-0.05f, 0.4f, 0f), Quaternion.identity);
 
         }
         
